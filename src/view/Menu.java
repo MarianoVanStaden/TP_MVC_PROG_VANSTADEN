@@ -19,16 +19,16 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
-                    crearProducto();
+                    controller.Controlador.crearProducto();
                     break;
                 case 2:
-                    mostrarProductos();
+                	controller.Controlador.mostrarProductos();
                     break;
                 case 3:
-                    actualizarProducto();
+                	controller.Controlador.actualizarProducto();
                     break;
                 case 4:
-                    eliminarProducto();
+                	controller.Controlador.eliminarProducto();
                     break;
                 case 0:
                     System.out.println("Saliendo del sistema...");
@@ -50,74 +50,5 @@ public class Menu {
         System.out.print("Ingrese una opción: ");
     }
 
-    private static void crearProducto() {
-        System.out.print("Ingrese el ID del producto: ");
-        String id = scanner.nextLine();
 
-        System.out.print("Ingrese el nombre del producto: ");
-        String nombre = scanner.nextLine();
-
-        System.out.print("Ingrese el precio del producto: ");
-        double precio = scanner.nextDouble();
-        scanner.nextLine(); // Consumir el salto de línea
-
-        productos.add(new Producto(id, nombre, precio));
-        System.out.println("Producto creado correctamente.");
-    }
-
-    private static void mostrarProductos() {
-        if (productos.isEmpty()) {
-            System.out.println("No hay productos registrados.");
-            return;
-        }
-
-        System.out.println("\n**Lista de productos**");
-        for (Producto producto : productos) {
-            System.out.println(producto);
-        }
-    }
-
-    private static void actualizarProducto() {
-        if (productos.isEmpty()) {
-            System.out.println("No hay productos registrados.");
-            return;
-        }
-
-        System.out.print("Ingrese el nombre del producto a actualizar: ");
-        String nombreABuscar = scanner.nextLine();
-
-        Producto productoEncontrado = buscarProducto(nombreABuscar);
-        if (productoEncontrado == null) {
-            System.out.println("Producto no encontrado.");
-            return;
-        }
-
-        System.out.print("Ingrese el nuevo nombre del producto: ");
-        String nuevoNombre = scanner.nextLine();
-
-        System.out.print("Ingrese el nuevo precio del producto: ");
-        double nuevoPrecio = scanner.nextDouble();
-        scanner.nextLine(); // Consumir el salto de línea
-
-        productoEncontrado.setNombre(nuevoNombre);
-        productoEncontrado.setPrecio(nuevoPrecio);
-        System.out.println("Producto actualizado correctamente.");
-    	}
-
-    private static Producto buscarProducto(String nombreABuscar) {
-        for (Producto producto : productos) {
-            if (producto.getNombre().equalsIgnoreCase(nombreABuscar)) {
-                return producto;
-            }
-        }
-        return null;
-    }
-
-    private static void eliminarProducto() {
-        if (productos.isEmpty()) {
-            System.out.println("No hay productos registrados.");
-            return;
-        }
-
-    }
     }
