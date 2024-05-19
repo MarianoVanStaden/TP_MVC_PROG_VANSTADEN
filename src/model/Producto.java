@@ -1,20 +1,21 @@
+package model;
 
 public class Producto {
-private int id;
+private String id;
 private String nombre;
 private double precio;
 
-public Producto(int id, String nombre, double precio) {
+public Producto(String id2, String nombre, double precio) {
 	super();
-	this.id = id;
+	this.id = id2;
 	this.nombre = nombre;
 	this.precio = precio;
 	
 }
-public int getId() {
+public String getId() {
 	return id;
 }
-public void setId(int id) {
+public void setId(String id) {
 	this.id = id;
 }
 public String getNombre() {
