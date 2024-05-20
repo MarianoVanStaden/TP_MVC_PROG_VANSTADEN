@@ -1,15 +1,18 @@
 package model;
 
+
 public class Producto {
 private String id;
 private String nombre;
 private double precio;
+private String categoria;
 
-public Producto(String id2, String nombre, double precio) {
+public Producto(String id2, String nombre, double precio, String categoria) {
 	super();
 	this.id = id2;
 	this.nombre = nombre;
 	this.precio = precio;
+	this.categoria = categoria;
 	
 }
 public String getId() {
@@ -29,6 +32,12 @@ public double getPrecio() {
 }
 public void setPrecio(double precio) {
 	this.precio = precio;
+}
+public String getCategoria() {
+	return categoria;
+}
+public void setCategoria(String categoria) {
+	this.categoria = categoria;
 }
 
 }
