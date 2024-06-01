@@ -3,50 +3,50 @@ package view;
 import java.util.Scanner;
 
 public class Menu {
+	public static void menuInicial() {
+    try {
 
-    private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
         int opcion;
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
+			do {
+			    mostrarMenu();
+			    opcion = scanner.nextInt();
+			    scanner.nextLine();
 
-        do {
-            mostrarMenu();
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (opcion) {
-                case 1:
-                    controller.Controlador.crearProducto();
-                    break;
-                case 2:
-                	controller.Controlador.mostrarProductos();
-                    break;
-                case 3:
-                	controller.Controlador.mostrarProductosPorCategoria();
-                    break;
-                case 4:
-                	controller.Controlador.actualizarProducto();
-                    break;
-                case 5:
-                	controller.Controlador.eliminarProducto();
-                    break;
-                case 9:
-                	controller.Controlador.cargarLotePrueba();
-                	break;
-                case 0:
-                    System.out.println("Saliendo del sistema...");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-                    System.out.println("Intente nuevamente.");
-            }
-        } while (opcion != 0);
+			    switch (opcion) {
+			        case 1:
+			            controller.Controlador.crearProducto();
+			            break;
+			        case 2:
+			        	controller.Controlador.mostrarProductos();
+			            break;
+			        case 3:
+			        	controller.Controlador.mostrarProductosPorCategoria();
+			            break;
+			        case 4:
+			        	controller.Controlador.actualizarProducto();
+			            break;
+			        case 5:
+			        	controller.Controlador.eliminarProducto();
+			            break;
+			        case 9:
+			        	controller.Controlador.cargarLotePrueba();
+			        	break;
+			        case 0:
+			            System.out.println("Saliendo del sistema...");
+			            break;
+			        default:
+			            System.out.println("Opción no válida.");
+			            System.out.println("Intente nuevamente.");
+			    }
+			} while (opcion != 0);
+		}
     }
     catch (Exception e) {
     	System.out.println("Ha ingresado un tipo de dato incorrecto, reinicie el programa");
     }
-    }
+	}
     
 
     private static void mostrarMenu() {
